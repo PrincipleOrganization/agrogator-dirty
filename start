@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+'use strict';
+const Application = require('./lib/application/index.js');
+
+let app = new Application();
+global.app = app;
+
+app.express.set('port', app.port);
+
+var server = app.express.listen(app.port, function() {
+  console.log(`Server started on port ${app.port}`);
+});
